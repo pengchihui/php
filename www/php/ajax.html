@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<input type="text" name="user" />
+		<input type="password" name="pass" />
+		<button>点击</button>
+
+		<script>
+			var btn = document.querySelector("button");
+			var inp = document.getElementsByTagName("input");
+			btn.onclick = function() {
+				var xhr = new XMLHttpRequest();
+				xhr.open("post", "04.php", true);
+				xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+				xhr.onload = function() {
+					console.log(this.responseText)
+				}
+				xhr.send("user="+inp[0].value+"&pass=45")
+			}
+		</script>
+
+	</body>
+
+</html>

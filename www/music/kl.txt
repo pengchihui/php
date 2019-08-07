@@ -1,0 +1,14 @@
+[
+{ "id":"新兰",
+  "title":"勇气",
+  "singer":"梁金茹",
+  "picture":"./uploads/jifjefe.jpg",
+  "music":"./uploads/bg.mp3"
+},
+{ "id":"小豪",
+  "title":"霸气",
+  "singer":"王伟",
+  "picture":"./uploads/jifjefe.jpg",
+  "music":"./uploads/bg.mp3"
+}
+]
