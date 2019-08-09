@@ -1,9 +1,9 @@
 <?php
 /*持久化到数据库*/
-	$con=mysqli_connect("localhost","pengroot","123456","test");
+	$con=mysqli_connect("localhost","sfydb_6313663","Kaiweili.9","sfydb_6313663");
 	if($con){
 	   /*增加到数据库*/
-	    $sql="UPDATE `singer` SET `titile`='".$_GET['titile']."',`singer`='".$_GET['singer']."',`picture`='".$_GET['piPath']."',`music`='".$_GET['muPath']."' WHERE id='".$_GET['id']."'";
+	    $sql="UPDATE `1` SET `titile`='".$_GET['titile']."',`singer`='".$_GET['singer']."',`picture`='".$_GET['piPath']."',`music`='".$_GET['muPath']."' WHERE id='".$_GET['id']."'";
 	    $show=mysqli_query($con, $sql);
 //		var_dump($show);
 //		var_dump($sql);

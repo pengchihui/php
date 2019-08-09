@@ -6,7 +6,7 @@
 	   /*增加到数据库*/
 	    $sql="INSERT INTO `singer`(`id`, `titile`, `singer`, `picture`, `music`) VALUES ('".$_GET['id']."','".$_GET['title']."','".$_GET['singer']."','".$_GET['piPath']."','".$_GET['muPath']."')";
 	    mysqli_query($con, $sql);
-	    header('location: http://localhost/music/shows.php');
+	    header('location: shows.php');
 	    return;
 	}else{
 		$GLOBALS['error_message']=mysqli_connect_error();

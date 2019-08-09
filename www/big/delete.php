@@ -35,8 +35,8 @@
   
    $id=$_GET['id'];
     /*文件删除*/
-	$con=mysqli_connect("localhost", "pengroot","123456","test");
-	$sq="SELECT `picture`, `music` FROM `singer` WHERE id='".$id."'";
+	$con=mysqli_connect("localhost","sfydb_6313663","Kaiweili.9","sfydb_6313663");
+	$sq="SELECT `picture`, `music` FROM `1` WHERE id='".$id."'";
 	$aaa=mysqli_query($con, $sq);
 	$bbb=mysqli_fetch_assoc($aaa);
 	unlink($bbb["picture"]);
@@ -44,7 +44,7 @@
 	mysqli_free_result($aaa);
    
    //*数据库删除*/
-   $str="DELETE FROM `singer` WHERE id='".$id."'";
+   $str="DELETE FROM `1` WHERE id='".$id."'";
    $GLOBALS['error_message']=mysqli_connect_error();
    if($l=@mysqli_query($con,$str)){
    	    //*重定向*/

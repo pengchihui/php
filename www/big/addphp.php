@@ -1,12 +1,11 @@
 <?php
-/*持久化到数据库*/
-	$con=mysqli_connect("localhost","pengroot","123456","test");
+    /*处理步骤    验证   持久化  响应*/
+    /*持久化到数据库*/
+	$con=mysqli_connect("localhost","sfydb_6313663","Kaiweili.9","sfydb_6313663");
 	if($con){
 	   /*增加到数据库*/
-	    $sql="UPDATE `singer` SET `titile`='".$_GET['titile']."',`singer`='".$_GET['singer']."',`picture`='".$_GET['piPath']."',`music`='".$_GET['muPath']."' WHERE id='".$_GET['id']."'";
-	    $show=mysqli_query($con, $sql);
-//		var_dump($show);
-//		var_dump($sql);
+	    $sql="INSERT INTO `1`(`id`, `titile`, `singer`, `picture`, `music`) VALUES ('".$_GET['id']."','".$_GET['title']."','".$_GET['singer']."','".$_GET['piPath']."','".$_GET['muPath']."')";
+	    mysqli_query($con, $sql);
 	    header('location: shows.php');
 	    return;
 	}else{

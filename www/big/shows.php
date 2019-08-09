@@ -1,7 +1,7 @@
 <?php
     /*测试*/
 	/*数据库展示*/
-	$con=mysqli_connect("localhost","pengroot","123456","test");
+	$con=mysqli_connect("localhost","sfydb_6313663","Kaiweili.9","sfydb_6313663");
 	//出错了
 	//	if($con){
 	//	    $GLOBALS['error_message']='连接成功';
@@ -9,7 +9,7 @@
 	//	}else{
 	//		$GLOBALS['error_message']=mysqli_connect_error();
 	//		return;
-	$sql="SELECT `id`, `titile`, `singer`, `picture`, `music` FROM `singer` WHERE 1";
+	$sql="SELECT `id`, `titile`, `singer`, `picture`, `music` FROM `1` WHERE 1";
 	$my=mysqli_query($con, $sql);
 	/*把数据库查询的结果转成php结构*/
 	/*文本文件展示*/

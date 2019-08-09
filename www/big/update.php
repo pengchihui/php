@@ -1,7 +1,7 @@
 
 <?php 
-	    @$con=mysqli_connect("localhost","pengroot","123456","test");
-	  	@$sql="SELECT `id`, `titile`, `singer`, `picture`, `music` FROM `singer` WHERE id='".$_GET['id']."'";
+	    $con=mysqli_connect("localhost","sfydb_6313663","Kaiweili.9","sfydb_6313663");
+	  	@$sql="SELECT `id`, `titile`, `singer`, `picture`, `music` FROM `1` WHERE id='".$_GET['id']."'";
 	    @$my=mysqli_query($con, $sql);
 		@$GLOBALS['result']=mysqli_fetch_assoc($my);
 		
