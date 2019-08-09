@@ -1,29 +1,26 @@
 <?php
- /*处理步骤    验证   持久化  响应*/
- /*请求方式*/
-
 	if($_SERVER['REQUEST_METHOD']==='POST'){
 		add_music();
 	}
  
  function add_music(){
  	 /*字段不为空*/
- 	 if(empty($_POST['title'])){
+ 	if(empty($_POST['title'])){
  	 	 $GLOBALS['error_message'] = "请输入标题";
 		 return;
- 	 }
-	 if(empty($_POST['singer'])){
+ 	}
+	if(empty($_POST['singer'])){
  	 	 $GLOBALS['error_message'] = "请输入歌手名字";
 		 return;
- 	 }
- 	 if(empty($_FILES['picture'])){
+ 	}
+ 	if(empty($_FILES['picture'])){
  	 	 $GLOBALS['error_message'] = "请选择图片";
 		 return;
- 	 }
-	 if(empty($_FILES['music'])){
+ 	}
+	if(empty($_FILES['music'])){
  	 	 $GLOBALS['error_message'] = "请选择音乐";
 		 return;
- 	 }
+ 	}
      /*文件状态*/
 	$picture=$_FILES['picture'];
 	$music=$_FILES['music'];
@@ -47,14 +44,8 @@
 		 return;
      }
 	/*文件格式*/
-	$picu=["image/jpg","image/png","image/jpeg","image/exr","image/tif"];
-	$musi=["audio/mp3","audio/midi","audio/wma","audio/vqf","audio/amr"];
-
-	
-	
-	//	var_dump($picture['type']);
-///	var_dump($music['type']);
-
+	$picu=array('image/jpg','image/png','image/gif','image/jpeg');
+	$musi=array('audio/mp3','audio/wma','audio/midi');
 	if(!in_array($picture['type'],$picu)){
 		$GLOBALS['error_message']="图片格式不对";
 		return;
@@ -68,7 +59,8 @@
 	$singer=$_POST['singer'];
 	$piPath='./uploads/'.time().Math.rand(1, 10).$picture['name'];
 	$muPath='./uploads/'.time().Math.rand(10, 20).$music['name'];
-   
+    $piPath=iconv('utf-8','gb2312',$piPath); 
+    $muPath=iconv('utf-8','gb2312',$muPath);
     /*文件上传*/   
 	if(!move_uploaded_file($picture['tmp_name'],$piPath)){
 		 $GLOBALS['error_message'] = "图片上传失败";

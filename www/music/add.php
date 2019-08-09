@@ -47,14 +47,12 @@
 		 return;
      }
 	/*文件格式*/
-	$picu=["image/jpg","image/png","image/jpeg","image/exr","image/tif"];
-	$musi=["audio/mp3","audio/midi","audio/wma","audio/vqf","audio/amr"];
-
-	
-	
-	//	var_dump($picture['type']);
-///	var_dump($music['type']);
-
+	$picu=array('image/jpg','image/png','image/gif','image/jpeg');
+	$musi=array('audio/mp3','audio/wma','audio/midi');
+	var_dump($music['type']);
+	var_dump(in_array($picture['type'], $picu));
+	// $picu=["image/jpg","image/png","image/jpeg","image/exr","image/tif"];
+	// $musi=["audio/mp3","audio/midi","audio/wma","audio/vqf","audio/amr"];
 	if(!in_array($picture['type'],$picu)){
 		$GLOBALS['error_message']="图片格式不对";
 		return;
@@ -66,9 +64,10 @@
     $id=uniqid("123");
    	$title=$_POST['title'];
 	$singer=$_POST['singer'];
-	$piPath='./uploads/'.time().Math.rand(1, 10).$picture['name'];
-	$muPath='./uploads/'.time().Math.rand(10, 20).$music['name'];
-   
+	@$piPath='./uploads/'.time().Math.rand(1, 10).$picture['name'];
+	@$muPath='./uploads/'.time().Math.rand(10, 20).$music['name'];
+    @$piPath=iconv('utf-8','gb2312',$piPath); 
+    @$muPath=iconv('utf-8','gb2312',$muPath);
     /*文件上传*/   
 	if(!move_uploaded_file($picture['tmp_name'],$piPath)){
 		 $GLOBALS['error_message'] = "图片上传失败";
@@ -80,7 +79,7 @@
 	}
 	
 	if(trim($error_message)==""||trim($error_message)==null){
-		header("location: addphp.php?id=".$id."&title=".$title."&singer=".$singer."&piPath=".$piPath."&muPath=".$muPath);
+		 header("location: addphp.php?id=".$id."&title=".$title."&singer=".$singer."&piPath=".$piPath."&muPath=".$muPath);
 	    return;
 	}else{
 		 $GLOBALS['error_message'] = "音乐上传失败";

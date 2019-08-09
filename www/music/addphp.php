@@ -13,18 +13,18 @@
 		return;
 	}
 	/*持久化到几记事本*/
-    function book(){
-	    $arry=json_decode(file_get_contents("music.txt"),true); 
-		$new=[
-		  "id"=>"$id",
-		  "title"=>"$title",
-		  "singer"=>"$singer",
-		  "picture"=>"$piPath",
-		  "music"=>"$muPath"
-		];
-		array_push($arry,$new);
-		$result=json_encode($arry,JSON_UNESCAPED_UNICODE);
-		file_put_contents("music.txt", "$result");
-	    }
+//  function book(){
+//	    $arry=json_decode(file_get_contents("music.txt"),true); 
+//		$new=array(
+//		  "id"=>"$id",
+//		  "title"=>"$title",
+//		  "singer"=>"$singer",
+//		  "picture"=>"$piPath",
+//		  "music"=>"$muPath"
+//		);
+//		array_push($arry,$new);
+//		$result=json_encode($arry,JSON_UNESCAPED_UNICODE);
+//		file_put_contents("music.txt", "$result");
+//	    }
 	   mysqli_close($con);
 ?>

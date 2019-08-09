@@ -54,9 +54,7 @@
 		@$id=$_POST['id'];
 		@$titile=$_POST['title'];
 		@$singer=$_POST['singer'];
-//		@var_dump(isset($result['picture'])?$result['picture']:"");
-//		@var_dump(isset($result['music'])?$result['music']:"");
-			/*文件上传*/
+		/*文件上传*/
 	    if($picture['error']==4){
    		    @$piPath=$result['picture']?$result['picture']:"";
    	    }else{
